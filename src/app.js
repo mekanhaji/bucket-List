@@ -74,9 +74,14 @@ const renderItems = () => {
 renderItems();
 
 const onSubmit = () => {
-  const item = document.getElementById("input-field").value;
+  const input = document.getElementById("input-field");
 
-  append(item);
+  if(!input.value || input.value === "") return
+
+  append(input.value);
+
+  input.value = ""
+  
   renderItems();
   console.log(list);
 };
