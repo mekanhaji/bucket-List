@@ -1,6 +1,7 @@
 const form = document.getElementById("cart-form");
 const items = document.getElementById("items");
 const button = document.getElementById("add-button");
+const themeToggler = document.getElementById("theme-trigger");
 
 const followSwipe = (container, handleSwipe) => {
   let startX = null;
@@ -76,14 +77,26 @@ renderItems();
 const onSubmit = () => {
   const input = document.getElementById("input-field");
 
-  if(!input.value || input.value === "") return
+  if (!input.value || input.value === "") return;
 
   append(input.value);
 
-  input.value = ""
-  
+  input.value = "";
+
   renderItems();
   console.log(list);
+};
+
+const triggerThemeChange = () => {
+  const html = document.getElementsByTagName("html")[0];
+
+  if (html.classList.contains("dark")) {
+    html.classList.remove("dark");
+    themeToggler.innerText = "🌚";
+  } else {
+    html.classList.add("dark");
+    themeToggler.innerText = "🌞";
+  }
 };
 
 form.addEventListener("submit", (event) => {
@@ -94,3 +107,5 @@ form.addEventListener("submit", (event) => {
 button.addEventListener("click", () => {
   onSubmit();
 });
+
+themeToggler.addEventListener("click", triggerThemeChange);

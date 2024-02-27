@@ -11,13 +11,16 @@ body {
   background-color: #eef0f4;
   color: #432000;
   user-select: none;
+
+  height: 100dvh;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   max-width: 320px;
-  margin: 30px auto;
+  margin: 0 auto;
+  padding-top: 30px;
 }
 
 form {
@@ -82,4 +85,33 @@ li {
 li:hover {
   background-color: #ffecc7;
   cursor: pointer;
+}
+
+.header-collapse-trigger {
+  background: var(--secondary);
+  border: 0px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  color: #fff;
+}
+
+.header-control {
+  background: var(--primary);
+  width: fit-content;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+html.dark {
+  .header-collapse-trigger {
+    background: var(--secondary);
+    border: 0px;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    color: #fff;
+  }
+
+  body {
+    background: #000;
+  }
 }
